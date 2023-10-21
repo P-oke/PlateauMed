@@ -1,3 +1,5 @@
+using PlateauMedTask.API;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +9,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddEntityFrameworkDbContext(builder.Configuration);
+
+builder.Services.RegisterService(builder.Configuration);
+builder.Services.ConfigureIdentity();
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
