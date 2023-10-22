@@ -17,6 +17,7 @@ namespace PlateauMedTask.Domain.Entities
         public string NationalIdNumber { get; set; } 
         public UserType UserType { get; set; }
         public DateTime CreationTime { get; set; }
+        public DateTime DateOfBirth { get; set; } 
 
         [NotMapped]
         public string FullName

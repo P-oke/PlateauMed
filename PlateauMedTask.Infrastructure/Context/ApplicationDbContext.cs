@@ -21,6 +21,17 @@ namespace PlateauMedTask.Infrastructure.Context
 
         }
 
+        /// <summary>
+        /// Gets or sets the Teachers.
+        /// </summary>
+        public DbSet<Teacher> Teachers { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Students.
+        /// </summary>
+        public DbSet<Student> Students { get; set; }
+
+
 
     }
 }

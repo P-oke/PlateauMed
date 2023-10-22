@@ -48,7 +48,7 @@ namespace PlateauMedTask.Domain.Entities.Common
         /// Last modifier user for this entity.
         /// </summary>
         /// <value>The last modifier user identifier.</value>
-        T? LastModifierUserId { get; set; }
+        T LastModifierUserId { get; set; }
     }
 
     public interface IHasDeletionTime
