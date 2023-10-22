@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlateauMedTask.Domain.Entities
 {
-    public class User : IdentityUser<Guid>, ICreationAudited<Guid>, IModificationAudited<Guid?>, IDeletionAudited<Guid?>
+    public class User : IdentityUser<Guid>, ICreationAudited<Guid?>, IModificationAudited<Guid?>, IDeletionAudited<Guid?>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -28,7 +28,7 @@ namespace PlateauMedTask.Domain.Entities
             }
         }
 
-        public Guid CreatorUserId { get; set; }
+        public Guid? CreatorUserId { get; set; }
         public Guid? LastModifierUserId { get; set; }
         public DateTime? LastModificationTime { get; set; }
         public Guid? DeleterUserId { get; set; }
