@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PlateauMedTask.Application.Interfaces;
 using PlateauMedTask.Domain.Entities;
 using PlateauMedTask.Infrastructure.Context;
+using PlateauMedTask.Infrastructure.Implementations;
 
 namespace PlateauMedTask.API
 {
@@ -57,6 +59,7 @@ namespace PlateauMedTask.API
         public static void RegisterService(this IServiceCollection services, IConfiguration iConfiguration)
         {
             services.AddTransient<DbContext, ApplicationDbContext>();
+            services.AddScoped<ITeacherService, TeacherService>();
 
         }
 
