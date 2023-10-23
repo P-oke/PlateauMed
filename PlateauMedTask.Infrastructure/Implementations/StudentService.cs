@@ -81,7 +81,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
 
             var teachersDto = students.Select(x => (StudentDto)x).ToList();
 
-            return new ResultModel<List<StudentDto>>(teachersDto, $"Successfully found {teachersDto.Count} teacher(s)");
+            return new ResultModel<List<StudentDto>>(teachersDto, $"Successfully found {teachersDto.Count} student(s)");
         }
 
         public async Task<ResultModel<PaginatedList<StudentDto>>> GetAllStudentsPaginated(BaseSearchViewModel model)
@@ -94,7 +94,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
 
             var data = pagedNotifications.Select(x => (StudentDto)x).ToList();
 
-            return new ResultModel<PaginatedList<StudentDto>>(new PaginatedList<StudentDto>(data, model.PageIndex, model.PageSize, query.Count()), $"FOUND {data.Count} NOTIFICATIONS", ApiResponseCode.OK);
+            return new ResultModel<PaginatedList<StudentDto>>(new PaginatedList<StudentDto>(data, model.PageIndex, model.PageSize, query.Count()), $"Successfully found {data.Count} student(s)");
         }
 
         public async Task<ResultModel<StudentDto>> GetAStudent(Guid studentId)
@@ -105,7 +105,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
                                            .FirstOrDefaultAsync();
 
             if (student is null)
-                return new ResultModel<StudentDto>("Teacher doesn't exist", ApiResponseCode.NOT_FOUND);
+                return new ResultModel<StudentDto>("Student doesn't exist", ApiResponseCode.NOT_FOUND);
 
             StudentDto studentDto = student;
 

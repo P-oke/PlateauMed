@@ -70,7 +70,7 @@ namespace PlateauMedTask.API.Controllers
         /// <returns></returns>
         [HttpPut("{teacherId}")]
         [ProducesResponseType(typeof(ResultModel<StudentDto>), 200)]
-        public async Task<IActionResult> UpdateTeacher(Guid studentId, UpdateStudentDto model)
+        public async Task<IActionResult> UpdateStudent(Guid studentId, UpdateStudentDto model)
         {
             try
             {

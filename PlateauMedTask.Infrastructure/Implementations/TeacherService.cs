@@ -73,7 +73,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
             await _dbContext.Teachers.AddAsync(teacher);
             await _dbContext.SaveChangesAsync();
 
-            return new ResultModel<bool>(true, "Teacher Created Successfully", ApiResponseCode.CREATED);
+            return new ResultModel<bool>(true, "Teacher created successfully", ApiResponseCode.CREATED);
 
         }
 
@@ -100,7 +100,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
 
             var data = pagedNotifications.Select(x => (TeacherDto)x).ToList();
 
-            return new ResultModel<PaginatedList<TeacherDto>>(new PaginatedList<TeacherDto>(data, model.PageIndex, model.PageSize, query.Count()), $"FOUND {data.Count} NOTIFICATIONS", ApiResponseCode.OK);
+            return new ResultModel<PaginatedList<TeacherDto>>(new PaginatedList<TeacherDto>(data, model.PageIndex, model.PageSize, query.Count()), $"FOUND {data.Count} NOTIFICATIONS");
         }
 
         public async Task<ResultModel<TeacherDto>> GetATeacher(Guid teacherId)

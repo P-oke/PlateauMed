@@ -28,7 +28,7 @@ namespace PlateauMedTask.UnitTests.TeacherServiceTest
             //Arrange
             var data = new CreateTeacherDto
             {
-                Email = "test@yopmail.com",
+                Email = "teacher@yopmail.com",
                 Name = "Mary",
                 Surname = "Jane",
                 DateOfBirth = new DateTime(2000, 7, 5, 16, 23, 42, DateTimeKind.Utc),
