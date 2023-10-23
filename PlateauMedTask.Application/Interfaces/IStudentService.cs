@@ -12,8 +12,8 @@ namespace PlateauMedTask.Application.Interfaces
     public interface IStudentService
     {
         Task<ResultModel<bool>> CreateStudent(CreateStudentDto model); 
-        Task<ResultModel<bool>> UpdateStudent(Guid teacherId, UpdateStudentDto model);
-        Task<ResultModel<StudentDto>> GetAStudent(Guid teacherId);
+        Task<ResultModel<bool>> UpdateStudent(Guid studentId, UpdateStudentDto model);
+        Task<ResultModel<StudentDto>> GetAStudent(Guid studentId);
         Task<ResultModel<List<StudentDto>>> GetAllStudents();
         Task<ResultModel<PaginatedList<StudentDto>>> GetAllStudentsPaginated(BaseSearchViewModel model); 
 

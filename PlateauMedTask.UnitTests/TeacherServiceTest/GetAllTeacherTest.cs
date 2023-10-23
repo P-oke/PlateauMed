@@ -46,7 +46,7 @@ namespace PlateauMedTask.UnitTests.TeacherServiceTest
 
 
         [Fact]
-        public async Task GetAllTeachers_Paginated()
+        public async Task GetAllTeachers_Paginated_ShouldWork()
         {
             //Arrange
 
