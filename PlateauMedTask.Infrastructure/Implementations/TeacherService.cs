@@ -40,7 +40,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
             var validateUser = await _userManager.FindByEmailAsync(model.Email);
 
             if (validateUser is not null)
-                return new ResultModel<bool>(false, "User email already exist", ApiResponseCode.INVALID_REQUEST);
+                return new ResultModel<bool>("User email already exist", ApiResponseCode.INVALID_REQUEST);
            
 
             var user = new User
