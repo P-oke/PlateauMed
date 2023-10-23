@@ -64,7 +64,6 @@ namespace PlateauMedTask.Infrastructure.Implementations
 
             var teacher = new Teacher
             {
-                UserId = user.Id,
                 TeacherNumber = model.TeacherNumber,
                 Salary = model.Salary,
                 Title = model.Title,
@@ -145,7 +144,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
             _dbContext.Update(teacher);
             await _dbContext.SaveChangesAsync();
 
-            return new ResultModel<bool>(true, "Successfully updated");
+            return new ResultModel<bool>(true, "Successfully updated the teacher information");
         }
     }
 }

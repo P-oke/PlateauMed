@@ -60,6 +60,7 @@ namespace PlateauMedTask.API
         {
             services.AddTransient<DbContext, ApplicationDbContext>();
             services.AddScoped<ITeacherService, TeacherService>();
+            services.AddScoped<IStudentService, StudentService>();
 
         }
 
