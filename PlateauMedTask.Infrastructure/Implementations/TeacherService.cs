@@ -40,7 +40,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
             var validateUser = await _userManager.FindByEmailAsync(model.Email);
 
             if (validateUser is not null)
-                return new ResultModel<bool>(false, "User email already exist", ApiResponseCode.INVALID_REQUEST);
+                return new ResultModel<bool>("User email already exist", ApiResponseCode.INVALID_REQUEST);
            
 
             var user = new User
@@ -64,7 +64,6 @@ namespace PlateauMedTask.Infrastructure.Implementations
 
             var teacher = new Teacher
             {
-                UserId = user.Id,
                 TeacherNumber = model.TeacherNumber,
                 Salary = model.Salary,
                 Title = model.Title,
@@ -74,7 +73,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
             await _dbContext.Teachers.AddAsync(teacher);
             await _dbContext.SaveChangesAsync();
 
-            return new ResultModel<bool>(true, "Teacher Created Successfully", ApiResponseCode.CREATED);
+            return new ResultModel<bool>(true, "Teacher created successfully", ApiResponseCode.CREATED);
 
         }
 
@@ -101,7 +100,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
 
             var data = pagedNotifications.Select(x => (TeacherDto)x).ToList();
 
-            return new ResultModel<PaginatedList<TeacherDto>>(new PaginatedList<TeacherDto>(data, model.PageIndex, model.PageSize, query.Count()), $"FOUND {data.Count} NOTIFICATIONS", ApiResponseCode.OK);
+            return new ResultModel<PaginatedList<TeacherDto>>(new PaginatedList<TeacherDto>(data, model.PageIndex, model.PageSize, query.Count()), $"FOUND {data.Count} NOTIFICATIONS");
         }
 
         public async Task<ResultModel<TeacherDto>> GetATeacher(Guid teacherId)
@@ -145,7 +144,7 @@ namespace PlateauMedTask.Infrastructure.Implementations
             _dbContext.Update(teacher);
             await _dbContext.SaveChangesAsync();
 
-            return new ResultModel<bool>(true, "Successfully updated");
+            return new ResultModel<bool>(true, "Successfully updated the teacher information");
         }
     }
 }
